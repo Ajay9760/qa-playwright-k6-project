@@ -3,8 +3,6 @@ name: QA Automation Tests
 on:
   push:
     branches: [main]
-  pull_request:
-    branches: [main]
 
 jobs:
   test:
@@ -20,13 +18,14 @@ jobs:
           node-version: 18
 
       - name: Install Dependencies
-        run: npm install
+        run: npm ci
 
+      # ✅ FIXED LINE
       - name: Install Playwright Browsers
-        run: npx playwright install
+        run: npx playwright install --with-deps
 
       - name: Run UI Tests
-        run: npm run test:ui
+        run: npx playwright test
 
       - name: Run API Tests
-        run: npm run test:api
+        run: npx playwright test tests/api
