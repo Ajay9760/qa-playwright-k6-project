@@ -1,0 +1,19 @@
+{
+  "name": "qa-playwright-k6-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  ,"test:ui": "playwright test",
+  "test:api": "playwright test tests/api",
+  "test:load": "k6 run k6-tests/load-test.js"
+},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "^1.60.0"
+  }
+}
